@@ -1,0 +1,26 @@
+{% extends 'admin/master.html' %}
+{% block body %}
+{{ super() }}
+<div class="container">
+    <div class="row">
+        {% if not current_user.is_authenticated %}
+        <div class="col-sm-12 text-center">
+            <h1>Wut? U there?</h1>
+            <p class="lead">
+                gotta sign in you scum
+            <p>
+                <a class="btn btn-primary" href="{{ url_for('security.login') }}">Login</a>
+            </p>
+            <p>
+                <a class="btn btn-primary" href="/"><i class="glyphicon glyphicon-chevron-left"></i>Run!</a>
+            </p>
+        </div>
+        {% else %}
+        <div class="col-sm-12 text-center">
+        <h1>Hello there, mister {{ current_user.email }}.</h1>
+        <p class="lead">Good luck with your administrative business!</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock body %}
