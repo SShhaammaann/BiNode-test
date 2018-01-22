@@ -1,6 +1,5 @@
 from flask import Flask, render_template
-
-blog = Flask(__name__)
+from app.blog import blog
 
 @blog.route("/")
 @blog.route('/<username>')
